@@ -19,12 +19,14 @@ const allowedOrigins = frontendUrl.split(",").map((url) => url.trim());
 // Add common development ports
 allowedOrigins.push("http://localhost:3001");
 
+const isVercelOrigin = (origin = "") => origin.endsWith(".vercel.app");
+
 const corsOptions = {
   origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin)) {
+    if (!origin || allowedOrigins.includes(origin) || isVercelOrigin(origin)) {
       callback(null, true);
     } else {
-      console.log("Blocked by CORS:", origin);
+      console.log("Blocked by CORS:", origin, "allowed:", allowedOrigins);
       callback(new Error("Not allowed by CORS"));
     }
   },
