@@ -44,6 +44,11 @@ app.use("/api/users", require("./routes/userRoutes"));
 app.use("/api/posts", require("./routes/postRoutes"));
 app.use("/api/comments", require("./routes/commentRoutes"));
 
+// Root route for uptime checks
+app.get("/", (_req, res) => {
+  res.json({ status: "ok", message: "API root" });
+});
+
 // Health check route
 app.get("/api/health", (req, res) => {
   res.json({ status: "ok", message: "Server is running" });
