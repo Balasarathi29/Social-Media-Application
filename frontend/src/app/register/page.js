@@ -92,7 +92,7 @@ export default function RegisterPage() {
             <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100">
               Create Account
             </h1>
-            <p className="mt-2 text-slate-500">Join our community today</p>
+            <p className="mt-2 text-slate-500">Join our Big Compunity Today</p>
           </div>
 
           <form onSubmit={handleSubmit} className="mt-8 space-y-5">
